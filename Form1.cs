@@ -61,11 +61,21 @@ namespace SnakeMania
 
             if(snake.GroupBy(point => point).Any(g => g.Count() > 1))
             {
-                gameTimer.Enabled = false;
-                lblGameOver.Visible = true;
+                GameOver();
+            }
+
+            if (head.x < 0 || head.x > mainGame.Width || head.y < 0 || head.y > mainGame.Height)
+            {
+                GameOver();
             }
 
             mainGame.Refresh();
+        }
+
+        private void GameOver()
+        {
+            gameTimer.Enabled = false;
+            lblGameOver.Visible = true;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
