@@ -21,7 +21,8 @@ namespace SnakeMania
 
         private void mainGame_Paint(object sender, PaintEventArgs e)
         {
-            foreach (Point point in snake) {
+            foreach (Point point in snake)
+            {
                 e.Graphics.FillEllipse(new SolidBrush(Color.Black), point.x, point.y, 10, 10);
             }
 
@@ -31,7 +32,7 @@ namespace SnakeMania
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             Point head = snake[snake.Count - 1];
-            
+
             switch (direction)
             {
                 case Direction.Right:
@@ -49,17 +50,19 @@ namespace SnakeMania
 
             }
 
-            if(head.x == foodX && head.y == foodY)
+            if (head.x == foodX && head.y == foodY)
             {
                 Random random = new Random();
                 foodX = random.Next(mainGame.Width / 10) * 10;
                 foodY = random.Next(mainGame.Height / 10) * 10;
                 Tscore.Text = (snake.Count - 1).ToString();
-            } else {
+            }
+            else
+            {
                 snake.RemoveAt(0);
-                }
+            }
 
-            if(snake.GroupBy(point => point).Any(g => g.Count() > 1))
+            if (snake.GroupBy(point => point).Any(g => g.Count() > 1))
             {
                 GameOver();
             }
@@ -80,12 +83,12 @@ namespace SnakeMania
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if((direction == Direction.Up || direction == Direction.Down) && (e.KeyCode != Keys.Left && e.KeyCode != Keys.Right))
+            if ((direction == Direction.Up || direction == Direction.Down) && (e.KeyCode != Keys.Left && e.KeyCode != Keys.Right))
             {
                 return;
             }
 
-            if((direction == Direction.Left || direction == Direction.Right) && (e.KeyCode != Keys.Up && e.KeyCode != Keys.Down))
+            if ((direction == Direction.Left || direction == Direction.Right) && (e.KeyCode != Keys.Up && e.KeyCode != Keys.Down))
             {
                 return;
             }
