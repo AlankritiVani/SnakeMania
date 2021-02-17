@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace SnakeMania
 {
-    public partial class Form1 : Form
+    public partial class Design : Form
     {
         List<Point> snake = new List<Point>();
         int foodX = 100;
         int foodY = 100;
         Direction direction = Direction.Right;
 
-        public Form1()
+        public Design()
         {
             InitializeComponent();
             snake.Add(new Point(50, 50));
@@ -57,7 +57,7 @@ namespace SnakeMania
                 Tscore.Text = (snake.Count - 1).ToString();
             } else {
                 snake.RemoveAt(0);
-            }
+                }
 
             if(snake.GroupBy(point => point).Any(g => g.Count() > 1))
             {

@@ -1,7 +1,7 @@
 ﻿
 namespace SnakeMania
 {
-    partial class Form1
+    partial class Design
     {
         /// <summary>
         /// Required designer variable.
@@ -95,7 +95,7 @@ namespace SnakeMania
             this.lblGameOver.Text = "Game Over";
             this.lblGameOver.Visible = false;
             // 
-            // Form1
+            // Design
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,8 +106,8 @@ namespace SnakeMania
             this.Controls.Add(this.Points);
             this.Controls.Add(this.Score);
             this.Controls.Add(this.mainGame);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "Design";
+            this.Text = "SnakeMania";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.mainGame)).EndInit();
             this.ResumeLayout(false);
